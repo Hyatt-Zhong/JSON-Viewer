@@ -12,11 +12,22 @@ JsonViewDlg::JsonViewDlg(HINSTANCE hIntance, const NppData &nppData, int nCmdId,
     : m_NppData(nppData)
     , DockingDlgInterface(IDD_TREEDLG)
     , m_nDlgId(nCmdId)
-    , m_Editor(std::make_unique<ScintillaEditor>(nppData))
+    , m_Editor(std::make_unique<ScintillaEditor>(/*nppData*/))
     , m_hTreeView(std::make_unique<TreeViewCtrl>())
     , m_pSetting(pSetting)
 {
     _hParent = nppData._nppHandle;
+    _hInst   = hIntance;
+}
+
+JsonViewDlg::JsonViewDlg(HINSTANCE hIntance, HWND hwnd, int nCmdId, std::shared_ptr<Setting> &pSetting)
+    : DockingDlgInterface(IDD_TREEDLG)
+    , m_nDlgId(nCmdId)
+    , m_Editor(std::make_unique<ScintillaEditor>(/*nppData*/))
+    , m_hTreeView(std::make_unique<TreeViewCtrl>())
+    , m_pSetting(pSetting)
+{
+    _hParent = hwnd;
     _hInst   = hIntance;
 }
 
@@ -53,7 +64,7 @@ void JsonViewDlg::ShowDlg(bool bShow)
 
         // the dlgDlg should be the index of funcItem where the current function pointer is
         data.dlgID = static_cast<int>(CallBackID::SHOW_DOC_PANEL);
-        ::SendMessage(_hParent, NPPM_DMMREGASDCKDLG, 0, (LPARAM)&data);
+        //::SendMessage(_hParent, NPPM_DMMREGASDCKDLG, 0, (LPARAM)&data);
 
         // Draw json tree now
         DrawJsonTree();
@@ -580,7 +591,7 @@ void JsonViewDlg::ReportError(const Result &result)
 
 void JsonViewDlg::ToggleMenuItemState(bool bVisible)
 {
-    ::SendMessage(_hParent, NPPM_SETMENUITEMCHECK, static_cast<WPARAM>(m_nDlgId), bVisible);
+    //::SendMessage(_hParent, NPPM_SETMENUITEMCHECK, static_cast<WPARAM>(m_nDlgId), bVisible);
 }
 
 void JsonViewDlg::ShowControls(const std::vector<DWORD> &ids, bool show)

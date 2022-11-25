@@ -34,7 +34,7 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
@@ -240,7 +240,7 @@
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <SDLCheck>true</SDLCheck>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <TreatWarningAsError>true</TreatWarningAsError>
+      <TreatWarningAsError>false</TreatWarningAsError>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
@@ -254,9 +254,9 @@
   <ItemGroup>
     <ClCompile Include="..\external\npp\StaticDialog.cpp" />
     <ClCompile Include="AboutDlg.cpp" />
-    <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="JsonHandler.cpp" />
     <ClCompile Include="JsonViewDlg.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="NppJsonPlugin.cpp" />
     <ClCompile Include="Profile.cpp" />
     <ClCompile Include="RapidJsonHandler.cpp" />

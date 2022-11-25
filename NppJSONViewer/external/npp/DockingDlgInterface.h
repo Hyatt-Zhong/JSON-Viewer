@@ -58,14 +58,14 @@ public:
 
 	virtual void updateDockingDlg(void)
 	{
-		::SendMessage(_hParent, NPPM_DMMUPDATEDISPINFO, 0, (LPARAM)_hSelf);
+		//::SendMessage(_hParent, NPPM_DMMUPDATEDISPINFO, 0, (LPARAM)_hSelf);
 	}
 
 	virtual void destroy() {}
 
 	virtual void display(bool toShow = true) const
 	{
-		::SendMessage(_hParent, toShow ? NPPM_DMMSHOW : NPPM_DMMHIDE, 0, (LPARAM)_hSelf);
+		//::SendMessage(_hParent, toShow ? NPPM_DMMSHOW : NPPM_DMMHIDE, 0, (LPARAM)_hSelf);
 	}
 
 	const TCHAR * getPluginFileName() const { return _moduleName; }

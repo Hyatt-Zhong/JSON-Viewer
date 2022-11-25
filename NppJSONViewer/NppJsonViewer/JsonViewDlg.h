@@ -21,6 +21,7 @@ class JsonViewDlg : public DockingDlgInterface
 
 public:
     JsonViewDlg(HINSTANCE hIntance, const NppData &nppData, int nCmdId, std::shared_ptr<Setting> &pSetting);
+    JsonViewDlg(HINSTANCE hIntance, HWND hwnd, int nCmdId, std::shared_ptr<Setting> &pSetting);
     virtual ~JsonViewDlg();
 
     void ShowDlg(bool bShow);
